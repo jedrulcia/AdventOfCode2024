@@ -1,22 +1,18 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Text.RegularExpressions;
-using System;
+﻿using System.Text.RegularExpressions;
 
 namespace AdventOfCode2024
 {
     class Day3
     {
-        static void Main()
-        {
-            int all = AddAllMultiplications();
-            int doNot = AddAllDontMultiplications();
+        static int Day3Part1()
+		{
+			string basePath = AppDomain.CurrentDomain.BaseDirectory;
+			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
+			string dayPath = Path.Combine(projectPath, "Day3");
+			string filePath = Path.Combine(dayPath, "Day3.txt");
 
-            Console.WriteLine($"{all} - {doNot} = {all - doNot}");
-        }
+			string text = File.ReadAllText(filePath);
 
-        static int AddAllMultiplications()
-        {
-            string text = File.ReadAllText("C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day3.txt");
             string template = @"mul\(\d{1,3},\d{1,3}\)";
 
             int sum = 0;
@@ -34,9 +30,15 @@ namespace AdventOfCode2024
             return sum;
         }
 
-        static int AddAllDontMultiplications()
+        static int Day3Part2()
         {
-            string text = File.ReadAllText("C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day3.txt");
+
+			string basePath = AppDomain.CurrentDomain.BaseDirectory;
+			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
+			string dayPath = Path.Combine(projectPath, "Day3");
+			string filePath = Path.Combine(dayPath, "Day3.txt");
+
+			string text = File.ReadAllText(filePath);
 
             string doTemplate = @"do\(\)";
             string doNotTemplate = @"don't\(\)";

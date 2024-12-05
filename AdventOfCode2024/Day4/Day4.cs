@@ -2,7 +2,7 @@
 {
     class Day4
     {
-        public static int FindXmas()
+        public static int Day4Part1()
         {
             int counter = 0;
             char[,] tab = ConvertFromTxtToArray();
@@ -86,7 +86,7 @@
             return counter;
         }
 
-        public static int FindMasMas()
+        public static int Day4Part2()
         {
             int counter = 0;
             char[,] tab = ConvertFromTxtToArray();
@@ -99,7 +99,7 @@
                     {
                         if (i + 1 < tab.GetLength(0) && j + 1 < tab.GetLength(1) && i - 1 >= 0 && j - 1 >= 0)
                         {
-                            if (tab[i - 1, j - 1] == 'M' && tab[i + 1, j + 1] == 'S' || tab[i - 1, j - 1] == 'S' && tab[i + 1, j + 1] =='M')
+                            if (tab[i - 1, j - 1] == 'M' && tab[i + 1, j + 1] == 'S' || tab[i - 1, j - 1] == 'S' && tab[i + 1, j + 1] == 'M')
                             {
                                 if (tab[i - 1, j + 1] == 'M' && tab[i + 1, j - 1] == 'S' || tab[i - 1, j + 1] == 'S' && tab[i + 1, j - 1] == 'M')
                                 {
@@ -115,9 +115,13 @@
         }
 
         public static char[,] ConvertFromTxtToArray()
-        {
-            string path = "C:\\Users\\v-Jedrzej.Koriat\\Desktop\\New folder\\c#\\Day3\\Day3\\Day4.txt";
-            var lines = File.ReadAllLines(path);
+		{
+			string basePath = AppDomain.CurrentDomain.BaseDirectory;
+			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
+			string dayPath = Path.Combine(projectPath, "Day4");
+			string filePath = Path.Combine(dayPath, "Day4.txt");
+
+			var lines = File.ReadAllLines(filePath);
 
             char[,] tab = new char[lines.Length, lines[0].Length];
 
