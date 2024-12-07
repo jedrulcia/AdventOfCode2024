@@ -9,10 +9,6 @@ namespace AdventOfCode2024
 {
 	class Day7
 	{
-		//24570211680
-		//24307870799
-		//267566105056
-
 		public static long Part1()
 		{
 			Dictionary<long, List<int>> dict = ConvertTxtToDictionary();
@@ -21,7 +17,86 @@ namespace AdventOfCode2024
 			{
 				var list = item.Value as List<int>;
 
-				List<string> sequences = GenerateSequence(list.Count - 1);
+				List<string> sequences = GenerateSequencePart1(list.Count - 1);
+
+				foreach (var sequence in sequences)
+				{
+					long currentValue = 0;
+					for (int j = 0; j < sequence.Length; j++)
+					{
+						if (sequence[j] == '*')
+						{
+							if (j == 0)
+							{
+								currentValue = list[j] * list[j + 1];
+							}
+							else
+							{
+								currentValue *= list[j + 1];
+							}
+						}
+						else if (sequence[j] == '+')
+						{
+							if (j == 0)
+							{
+								currentValue = list[j] + list[j + 1];
+							}
+							else
+							{
+								currentValue += list[j + 1];
+							}
+						}
+					}
+					if (currentValue == item.Key)
+					{
+						sum += currentValue;
+						break;
+					}
+				}
+			}
+			return sum;
+		}
+
+		public static List<string> GenerateSequencePart1(int n)
+		{
+			List<string> sequences = new List<string>();
+			char adding = '+';
+			char multiplying = '*';
+			char stringAdding = '|';
+
+			int totalCombinations = (int)Math.Pow(2, n);
+
+			for (int i = 0; i < totalCombinations; i++)
+			{
+				string combination = "";
+				for (int j = 0; j < n; j++)
+				{
+					if ((i & (1 << j)) != 0)
+					{
+						combination += multiplying;
+					}
+					else
+					{
+						combination += adding;
+					}
+				}
+				sequences.Add(combination);
+			}
+
+
+			return sequences;
+		}
+
+
+		public static long Part2()
+		{
+			Dictionary<long, List<int>> dict = ConvertTxtToDictionary();
+			long sum = 0;
+			foreach (var item in dict)
+			{
+				var list = item.Value as List<int>;
+
+				List<string> sequences = GenerateSequencePart2(list.Count - 1);
 
 				foreach (var sequence in sequences)
 				{
@@ -74,7 +149,7 @@ namespace AdventOfCode2024
 			return sum;
 		}
 
-		public static List<string> GenerateSequence(int n)
+		public static List<string> GenerateSequencePart2(int n)
 		{
 			List<string> sequences = new List<string>();
 			char adding = '+';
@@ -90,8 +165,8 @@ namespace AdventOfCode2024
 
 				for (int j = 0; j < n; j++)
 				{
-					int remainder = current % 3; 
-					current /= 3; 
+					int remainder = current % 3;
+					current /= 3;
 
 					if (remainder == 0)
 					{
