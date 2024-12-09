@@ -87,16 +87,36 @@ namespace AdventOfCode2024
 			return sequences;
 		}
 
+		/* 116094961956019
+			Runtime: 10417 ms
+		 */
+
 
 		public static long Part2()
 		{
+
 			Dictionary<long, List<int>> dict = ConvertTxtToDictionary();
+			Dictionary<int, List<string>> sequenceDictionary = new Dictionary<int, List<string>>();
+
+
+			int max = 2;
+			foreach (var item in dict)
+			{
+				max = Math.Max(max, item.Value.Count);
+			}
+
+			for (int i = 2; i <= max; i++)
+			{
+				sequenceDictionary[i] = (GenerateSequencePart2(i - 1));
+			}
+
 			long sum = 0;
+
 			foreach (var item in dict)
 			{
 				var list = item.Value as List<int>;
 
-				List<string> sequences = GenerateSequencePart2(list.Count - 1);
+				List<string> sequences = sequenceDictionary[list.Count];
 
 				foreach (var sequence in sequences)
 				{
