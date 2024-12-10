@@ -104,8 +104,8 @@ namespace AdventOfCode2024
 			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
 			string dayPath = Path.Combine(projectPath, "Day9");
 			string filePath = Path.Combine(dayPath, "Day9.txt");
-			//string text = File.ReadAllText(filePath);
-			string text = "2333133121414131402";
+			string text = File.ReadAllText(filePath);
+			//string text = "2333133121414131402";
 
 
 			List<Day9> list = new List<Day9>();
@@ -139,110 +139,52 @@ namespace AdventOfCode2024
 			List<int> dotIndexes = new List<int>();
 			List<int> idIndexes = new List<int>();
 
-
-			for (int j = list.Count - 1; j >= 0; j--)
+			for (int i = list.Count - 1; i >= 0; i--)
 			{
-				if (list[j].Id != ".")
+				if (list[i].Id != ".")
 				{
-					string idHolder = list[j].Id;
-					
-					while (j >= 0 && list[j].Id == idHolder)
+					string idHolder = list[i].Id;
+					int currentI = i;
+
+					while (currentI >= 0 && list[currentI].Id == idHolder)
 					{
-						idIndexes.Add(j);
-						j--;
-					}
-					j++;
-
-					for (int i = 0; i < j; i++)
-					{
-						if (list[i].Id == ".")
-						{
-							while (list[i].Id == ".")
-							{
-								dotIndexes.Add(i);
-								i++;
-							}
-							i--;
-						}
-
-						if (dotIndexes.Count >= idIndexes.Count)
-						{
-							for (int k = idIndexes.Count - 1; k >= 0; k--)
-							{
-							}
-							for (int k = 0; k < idIndexes.Count - 1; k++)
-							{
-							}
-							idIndexes.Clear();
-							dotIndexes.Clear();
-						}
-
-					}
-					
-				}
-			}
-
-
-
-			/*for (int i = 0; i < list.Count; i++)
-			{
-				if (list[i].Id == ".")
-				{
-					while (list[i].Id == ".")
-					{
-						dotCounter++;
-						i++;
+						idIndexes.Add(currentI);
+						currentI--;
 					}
 
-					for (int j = holderJ; j >= 0; j--)
+					for (int j = 0; j < i; j++)
 					{
-						string holderId = "";
-						if (list[j].Id != ".")
+						if (list[j].Id == ".")
 						{
-							holderId = list[j].Id;
-							while (list[j].Id == holderId)
+							int currentJ = j;
+
+							while (list[currentJ].Id == "." && j < list.Count())
 							{
-								idCounter++;
-								j--;
+								dotIndexes.Add(currentJ);
+								currentJ++;
 							}
 
-							if (idCounter <= dotCounter)
-							{
-								while(idCounter > 0)
-								{
-									list[i - dotCounter].Id = holderId;
-									list[j + idCounter].Id = ".";
-									foreach (var item in list)
-									{
-										Console.Write(item.Id);
-									}
-									Console.WriteLine();
-									dotCounter--;
-									idCounter--;
-									holderJ = j + 1;
-								}
-								dotCounter = 0;
-								idCounter = 0;
-							}
-							else
-							{
-								idCounter = 0;
-							}
-						}
-						if (j <= i)
-						{
-							shouldEndFlag = true;
-							break;
-						}
-					}
-				}
-				if (shouldEndFlag)
-				{
-					break;
-				}
-			}*/
+                            if (dotIndexes.Count >= idIndexes.Count)
+                            {
+                                for (int k = idIndexes.Count - 1; k >= 0; k--)
+                                {
+                                    list[dotIndexes[k]].Id = idHolder;
+                                    list[idIndexes[k]].Id = ".";
+                                }
+                                idIndexes.Clear();
+                                dotIndexes.Clear();
+                                idHolder = "";
+                                break;
+                            }
+                            dotIndexes.Clear();
+                        }
+                    }
+                    idIndexes.Clear();
+                    i = currentI + 1;
+                }
+            }
 
-			long sum = 0;
+            long sum = 0;
 			int multiplier = 0;
 
 			for (int i = 0; i < list.Count; i++)
@@ -250,9 +192,9 @@ namespace AdventOfCode2024
 				if (list[i].Id != ".")
 				{
 					sum += Convert.ToInt64(list[i].Id) * multiplier;
-					multiplier++;
-				}
-			}
+                }
+                multiplier++;
+            }
 
 			return sum;
 		}

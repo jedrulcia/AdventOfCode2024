@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day9\\day9.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day9\\day9.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day6\\day6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day6\\day6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Day9.cs",
-              "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day9\\Day9.cs",
-              "RelativeDocumentMoniker": "Day9\\Day9.cs",
-              "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day9\\Day9.cs",
-              "RelativeToolTip": "Day9\\Day9.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAhwIsAAAApAAAA",
+              "Title": "Day6.cs",
+              "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day6\\Day6.cs",
+              "RelativeDocumentMoniker": "Day6\\Day6.cs",
+              "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day6\\Day6.cs",
+              "RelativeToolTip": "Day6\\Day6.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T17:58:46.816Z",
+              "WhenOpened": "2024-12-10T17:14:26.45Z",
               "EditorCaption": ""
             }
           ]
