@@ -13,3 +13,6 @@ C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventO
 C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\obj\Debug\net8.0\AdventOfCode2024.pdb
 C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\obj\Debug\net8.0\AdventOfCode2024.genruntimeconfig.cache
 C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\obj\Debug\net8.0\ref\AdventOfCode2024.dll
+C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\bin\Debug\net8.0\MathNet.Numerics.dll
+C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\obj\Debug\net8.0\AdventOfCode2024.csproj.AssemblyReference.cache
+C:\Users\Jedrulcia\Desktop\Jedrzej\Programowanko\github\AdventOfCode2024\AdventOfCode2024\obj\Debug\net8.0\AdventOf.444403F5.Up2Date

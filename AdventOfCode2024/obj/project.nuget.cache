@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "durDtnbUqyA=",
+  "dgSpecHash": "hOMU1AnuQYs=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\AdventOfCode2024.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Jedrulcia\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
