@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day13\\day13.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day13\\day13.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day12\\day12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day12\\day12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Day13.cs",
+              "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day13\\Day13.cs",
+              "RelativeDocumentMoniker": "Day13\\Day13.cs",
+              "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day13\\Day13.cs",
+              "RelativeToolTip": "Day13\\Day13.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAkwKAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T22:22:53.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Day12.txt",
               "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day12\\Day12.txt",
               "RelativeDocumentMoniker": "Day12\\Day12.txt",
@@ -46,25 +63,24 @@
               "RelativeToolTip": "Day12\\Day12.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-12T21:37:57.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T21:37:57.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Day12.cs",
               "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day12\\Day12.cs",
               "RelativeDocumentMoniker": "Day12\\Day12.cs",
               "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day12\\Day12.cs",
               "RelativeToolTip": "Day12\\Day12.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowBgAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA5wDAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T20:23:04.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -72,8 +88,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T17:30:47.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T17:30:47.478Z"
             }
           ]
         }
