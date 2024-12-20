@@ -12,6 +12,5 @@ class Program
 		
 		stopwatch.Stop();
 		Console.WriteLine($"Runtime: {stopwatch.ElapsedMilliseconds} ms");
-
 	}
 }
