@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day15\\day15.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day15\\day15.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:56:52.842Z",
+              "WhenOpened": "2024-12-21T10:35:33.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Day15.cs",
+              "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day15\\Day15.cs",
+              "RelativeDocumentMoniker": "Day15\\Day15.cs",
+              "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day15\\Day15.cs",
+              "RelativeToolTip": "Day15\\Day15.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAADsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T10:25:44.487Z",
               "EditorCaption": ""
             }
           ]
