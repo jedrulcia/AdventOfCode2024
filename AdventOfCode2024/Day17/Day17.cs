@@ -69,14 +69,7 @@ namespace AdventOfCode2024
 				ProcessOperation(ref register, program[i], program[i + 1], ref i, ref output);
 			}
 
-			string text = "";
-
-			foreach (var item in output)
-			{
-				text += item.ToString();
-			}
-
-			return text;
+			return output;
 		}
 
 		private static void ProcessOperation(ref Day17 register, int opcode, int operand, ref int i, ref string output)
