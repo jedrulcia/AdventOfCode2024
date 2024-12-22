@@ -1,181 +1,184 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Text;
+using System.ComponentModel;
 
 namespace AdventOfCode2024
 {
 	class Day15
 	{
+		private static int width;
+		private static int height;
+		private static char[,] map;
+		private static List<char> instructions;
+		private static Point robotPosition;
+
 		public static int Part2()
 		{
-			(List<char> arrowList, char[,] tab) = ProcessTxtFilePart2();
-			int sum = 0;
+			ProcessInputPart2();
 
-			int currentRobotI = 0;
-			int currentRobotJ = 0;
 
-			for (int i = 0; i < tab.GetLength(0); i++)
+			for (int i = 0; i < map.GetLength(0); i++)
 			{
-				for (int j = 0; j < tab.GetLength(1); j++)
+				for (int j = 0; j < map.GetLength(1); j++)
 				{
-					if (tab[i, j] == '@')
+					if (map[i, j] == '@')
 					{
-						currentRobotI = i;
-						currentRobotJ = j;
+						robotPosition = new Point(i, j);
 					}
 				}
 			}
 
-			foreach (var item in arrowList)
+			OutputMap();
+
+			foreach (var instruction in instructions)
 			{
-				switch (item)
-				{
-					case '^': PushPart2(tab, ref currentRobotI, ref currentRobotJ, -1, 0); break;
-					case '>': PushPart2(tab, ref currentRobotI, ref currentRobotJ, 0, 1); break;
-					case 'v': PushPart2(tab, ref currentRobotI, ref currentRobotJ, 1, 0); break;
-					case '<': PushPart2(tab, ref currentRobotI, ref currentRobotJ, 0, -1); break;
-				}
+				MoveRobot(instruction);
 			}
 
-			for (int i = 0; i < tab.GetLength(0); i++)
+			var total = 0;
+			for (int y = 0; y < height; y++)
 			{
-				for (int j = 0; j < tab.GetLength(1); j++)
+				for (int x = 0; x < width; x++)
 				{
-					Console.Write(tab[i, j]);
-					if (tab[i, j] == '[')
+					if (map[x, y] == '[')
 					{
-						sum += (100 * i) + j;
+						total += y * 100 + x;
 					}
 				}
-				Console.WriteLine();
 			}
 
-			return sum;
+			return total;
+		}
+		private static void OutputMap()
+		{
+			for (int y = 0; y < height; y++)
+			{
+				for (int x = 0; x < width; x++)
+				{
+					Console.Write(map[x, y]);
+				}
+				Console.WriteLine("");
+			}
 		}
 
-		public static bool PushPart2(char[,] tab, ref int currentRobotI, ref int currentRobotJ, int offsetI, int offsetJ)
+		private static void MoveRobot(char instruction)
 		{
+			var direction = instruction switch
+			{
+				'^' => new Point(0, -1),
+				'>' => new Point(1, 0),
+				'v' => new Point(0, 1),
+				'<' => new Point(-1, 0),
+				_ => throw new InvalidOperationException()
+			};
 
-			if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '#')
+			if (CanMove(robotPosition, direction))
+			{
+				Move(robotPosition, direction);
+				robotPosition.X += direction.X;
+				robotPosition.Y += direction.Y;
+			}
+		}
+
+		private static bool CanMove(Point position, Point direction)
+		{
+			var newPosition = new Point(position.X + direction.X, position.Y + direction.Y);
+			var currentTile = map[position.X, position.Y];
+
+			if (currentTile == '.')
+			{
+				return true;
+			}
+
+			if (currentTile == '#')
 			{
 				return false;
 			}
-			else if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '.')
+
+			var newTile = map[newPosition.X, newPosition.Y];
+
+			if (currentTile == '[' || currentTile == ']')
 			{
-				int holderOffsetI = offsetI;
-				int holderOffsetJ = offsetJ;
-
-				if (holderOffsetI > 0) holderOffsetI--;
-				else if (holderOffsetI < 0) holderOffsetI++;
-				else if (holderOffsetJ > 0) holderOffsetJ--;
-				else if (holderOffsetJ < 0) holderOffsetJ++;
-
-				char holder = tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ];
-				tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ] = tab[currentRobotI + offsetI, currentRobotJ + offsetJ];
-				tab[currentRobotI + offsetI, currentRobotJ + offsetJ] = holder;
-
-				if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '@')
+				if ((currentTile == ']' && direction.X == -1 && direction.Y == 0) ||
+					(currentTile == '[' && direction.X == 1 && direction.Y == 0))
 				{
-					currentRobotI += offsetI;
-					currentRobotJ += offsetJ;
+					return CanMove(newPosition, direction);
 				}
 
-				return true;
+				if (currentTile == ']' && ((direction.X == 0 && direction.Y == -1) || (direction.X == 0 && direction.Y == 1)))
+				{
+					var holder = new Point(newPosition.X + (-1), newPosition.Y);
+					return CanMove(newPosition, direction) && CanMove(holder, direction);
+				}
+
+				if (currentTile == '[' && ((direction.X == 0 && direction.Y == -1) || (direction.X == 0 && direction.Y == 1)))
+				{
+					var holder = new Point(newPosition.X + 1, newPosition.Y);
+					return CanMove(newPosition, direction) && CanMove(holder, direction);
+				}
+
+				return CanMove(newPosition, direction);
 			}
-			else if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '[')
+
+			if (currentTile == '@')
 			{
-				int passOffsetI = offsetI;
-				int passOffsetJ = offsetJ;
-
-				if (passOffsetI > 0) passOffsetI++;
-				else if (passOffsetI < 0) passOffsetI--;
-				else if (passOffsetJ > 0) passOffsetJ++;
-				else if (passOffsetJ < 0) passOffsetJ--;
-
-				if (PushPart2(tab, ref currentRobotI, ref currentRobotJ, passOffsetI, passOffsetJ) && 
-					PushPart2(tab, ref currentRobotI, ref currentRobotJ, passOffsetI, passOffsetJ))
-				{
-					int holderOffsetI = offsetI;
-					int holderOffsetJ = offsetJ;
-
-					if (holderOffsetI > 0) holderOffsetI--;
-					else if (holderOffsetI < 0) holderOffsetI++;
-					else if (holderOffsetJ > 0) holderOffsetJ--;
-					else if (holderOffsetJ < 0) holderOffsetJ++;
-
-					char holder = tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ];
-					tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ] = tab[currentRobotI + offsetI, currentRobotJ + offsetJ];
-					tab[currentRobotI + offsetI, currentRobotJ + offsetJ] = holder;
-
-					if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '@')
-					{
-						currentRobotI += offsetI;
-						currentRobotJ += offsetJ;
-					}
-
-					return true;
-				}
-
-				else
-				{
-					return false;
-				}
+				return CanMove(newPosition, direction);
 			}
-			else if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == ']')
-			{
-				int passOffsetI = offsetI;
-				int passOffsetJ = offsetJ;
 
-				if (passOffsetI > 0) passOffsetI++;
-				else if (passOffsetI < 0) passOffsetI--;
-				else if (passOffsetJ > 0) passOffsetJ++;
-				else if (passOffsetJ < 0) passOffsetJ--;
-
-				if (PushPart2(tab, ref currentRobotI, ref currentRobotJ, passOffsetI, passOffsetJ) &&
-					PushPart2(tab, ref currentRobotI, ref currentRobotJ, passOffsetI, passOffsetJ - 1))
-				{
-					int holderOffsetI = offsetI;
-					int holderOffsetJ = offsetJ;
-
-					if (holderOffsetI > 0) holderOffsetI--;
-					else if (holderOffsetI < 0) holderOffsetI++;
-					else if (holderOffsetJ > 0) holderOffsetJ--;
-					else if (holderOffsetJ < 0) holderOffsetJ++;
-
-					char holder = tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ];
-					tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ] = tab[currentRobotI + offsetI, currentRobotJ + offsetJ];
-					tab[currentRobotI + offsetI, currentRobotJ + offsetJ] = holder;
-
-					holder = tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ];
-					tab[currentRobotI + holderOffsetI, currentRobotJ + holderOffsetJ] = tab[currentRobotI + offsetI, currentRobotJ + offsetJ];
-					tab[currentRobotI + offsetI, currentRobotJ + offsetJ] = holder;
-
-					if (tab[currentRobotI + offsetI, currentRobotJ + offsetJ] == '@')
-					{
-						currentRobotI += offsetI;
-						currentRobotJ += offsetJ;
-					}
-
-					return true;
-				}
-
-				else
-				{
-					return false;
-				}
-			}
-			return false;
+			throw new InvalidOperationException();
 		}
 
-		public static (List<char> arrowList, char[,] tab) ProcessTxtFilePart2()
+		private static void Move(Point position, Point direction)
+		{
+			var newPosition = new Point(position.X + direction.X, position.Y + direction.Y);
+
+			var currentTile = map[position.X, position.Y];
+			var newTile = map[newPosition.X, newPosition.Y];
+
+			if ((direction.X == -1 && direction.Y == 0) || (direction.X == 1 && direction.Y == 0))
+			{
+				if (newTile != '.')
+				{
+					Move(newPosition, direction);
+				}
+			}
+			else
+			{
+				if (newTile == '[')
+				{
+					var holder = new Point(newPosition.X + 1, newPosition.Y);
+					Move(holder, direction);
+					Move(newPosition, direction);
+				}
+				else if (newTile == ']')
+				{
+					var holder = new Point(newPosition.X + (-1), newPosition.Y);
+					Move(holder, direction);
+					Move(newPosition, direction);
+				}
+				else if (newTile != '.')
+				{
+					Move(newPosition, direction);
+				}
+			}
+
+			map[newPosition.X, newPosition.Y] = map[position.X, position.Y];
+			map[position.X, position.Y] = '.';
+		}
+
+		public static void ProcessInputPart2()
 		{
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
 			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
 			string dayPath = Path.Combine(projectPath, "Day15");
-			string filePath = Path.Combine(dayPath, "Day15test.txt");
+			string filePath = Path.Combine(dayPath, "Day15.txt");
 			string[] lines = File.ReadAllLines(filePath);
 
 			List<string> mapLines = new List<string>();
@@ -203,47 +206,49 @@ namespace AdventOfCode2024
 				}
 			}
 
-			int numRows = mapLines.Count;
-			int numCols = mapLines[0].Length;
-			char[,] tab = new char[numRows, numCols * 2];
+			instructions = arrowList;
 
-			for (int i = 0; i < numRows; i++)
+			width = mapLines[0].Length * 2;
+			height = mapLines.Count;
+			map = new char[width, height];
+
+
+			for (int y = 0; y < height; y++)
 			{
-				for (int j = 0; j < numCols; j++)
+				for (int x = 0; x < mapLines[0].Length; x++)
 				{
-					if (mapLines[i][j] == 'O')
+					var character = mapLines[y][x];
+
+					if (character == '@')
 					{
-						tab[i, j * 2] = '[';
-						tab[i, j * 2 + 1] = ']';
+						robotPosition = new Point(x * 2, y);
+						map[x * 2, y] = '@';
+						map[x * 2 + 1, y] = '.';
 					}
-					else if (mapLines[i][j] == '#')
+					else if (character == '#')
 					{
-						tab[i, j * 2] = '#';
-						tab[i, j * 2 + 1] = '#';
+						map[x * 2, y] = '#';
+						map[x * 2 + 1, y] = '#';
 					}
-					else
+					else if (character == '.')
 					{
-						tab[i, j * 2] = mapLines[i][j];
-						tab[i, j * 2 + 1] = '.';
+						map[x * 2, y] = '.';
+						map[x * 2 + 1, y] = '.';
+					}
+					else if (character == 'O')
+					{
+						map[x * 2, y] = '[';
+						map[x * 2 + 1, y] = ']';
 					}
 				}
 			}
-
-
-			return (arrowList, tab);
 		}
-
 
 		// ===================================================
 
-
-
-
-
-
 		public static int Part1()
 		{
-			(List<char> arrowList, char[,] tab) = ProcessTxtFilePart1();
+			(List<char> arrowList, char[,] tab) = ProcessInput();
 			int sum = 0;
 
 			int currentRobotI = 0;
@@ -356,7 +361,7 @@ namespace AdventOfCode2024
 			return false;
 		}
 
-		public static (List<char> arrowList, char[,] tab) ProcessTxtFilePart1()
+		public static (List<char> arrowList, char[,] tab) ProcessInput()
 		{
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
 			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
