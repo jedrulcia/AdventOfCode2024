@@ -29,11 +29,11 @@ namespace AdventOfCode2024
 		public static ulong best = ulong.MaxValue;
 		public static string expectedOutput = "2414754114550330";
 
-		//public static string expectedOutput = "2415751643550330";
+		// 156985331222018
 
 		public static string Part2()
 		{
-			Solve(0UL, expectedOutput.Length - 1);
+			Solve(0, expectedOutput.Length - 1);
 			return best.ToString();
 		}
 
@@ -50,7 +50,9 @@ namespace AdventOfCode2024
 			{
 				var nextA = currentA * 8 + (ulong)remainder;
 				var result = Execute(nextA);
-				if (expectedOutput.EndsWith(result))
+
+				string expected = expectedOutput.Substring(index, expectedOutput.Length - index);
+				if (expected == result)
 				{
 					Solve(nextA, index - 1);
 				}
@@ -61,7 +63,6 @@ namespace AdventOfCode2024
 		{
 			Day17 register = new Day17(a);
 			List<int> program = [2, 4, 1, 4, 7, 5, 4, 1, 1, 4, 5, 5, 0, 3, 3, 0];
-			//List<int> program = [2, 4, 1, 5, 7, 5, 1, 6, 4, 3, 5, 5, 0, 3, 3, 0];
 			string output = "";
 
 			for (int i = 0; i < program.Count; i += 2)
