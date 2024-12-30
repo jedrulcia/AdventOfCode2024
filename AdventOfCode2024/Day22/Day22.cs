@@ -16,8 +16,7 @@ namespace AdventOfCode2024
 			string dayPath = Path.Combine(projectPath, "Day22");
 			string filePath = Path.Combine(dayPath, "Day22.txt");
 
-			//var lines = File.ReadAllLines(filePath);
-			List<long> lines = new List<long>([1, 2, 3, 2024]);
+			var lines = File.ReadAllLines(filePath);
 
 			Dictionary<(long, long, long, long), long> sequences = new Dictionary<(long, long, long, long), long>();
 
@@ -35,6 +34,7 @@ namespace AdventOfCode2024
 		{
 			List<long> differences = new List<long>();
 			List<long> secretNumbers = new List<long>();
+			HashSet<(long, long, long, long)> usedSequences = new HashSet<(long, long, long, long)>();
 
 			for (int i = 0; i < 2000; i++)
 			{
@@ -64,29 +64,23 @@ namespace AdventOfCode2024
 				if (i >= 4)
 				{
 					long bananas = secretNumbers[i] % 10;
-
 					var tuple = (differences[i - 3], differences[i - 2], differences[i - 1], differences[i]);
 
-					if (sequences.ContainsKey(tuple))
+					if (!usedSequences.Contains(tuple))
 					{
-						sequences[tuple] += bananas;
-
-						if (sequences[tuple] == 30)
+						usedSequences.Add(tuple);
+						if (sequences.ContainsKey(tuple))
 						{
-
+							sequences[tuple] += bananas;
+						}
+						else
+						{
+							sequences[tuple] = bananas;
 						}
 					}
-					else
-					{
-						sequences[tuple] = bananas;
-					}
-
 				}
 			}
 		}
-
-
-
 
 		public static string Part1()
 		{
@@ -96,8 +90,6 @@ namespace AdventOfCode2024
 			string filePath = Path.Combine(dayPath, "Day22.txt");
 
 			var lines = File.ReadAllLines(filePath);
-
-			//List<long> lines = new List<long>([1, 10, 100, 2024]);
 
 			long sum = 0;
 
