@@ -8,8 +8,6 @@ namespace AdventOfCode2024
 {
 	class Day23
 	{
-		// 63
-		// 1436
 		public static string Part1()
 		{
 			(List<(string, string)> tConnections, List<(string, string)> connections) = ProcessInput();
@@ -44,13 +42,13 @@ namespace AdventOfCode2024
 
 			int counter = 0;
 
-			foreach (var set in tSets)
+			foreach (var tSet in tSets)
 			{
-				if (set.Value.Count >= 2)
+				if (tSet.Value.Count >= 2)
 				{
-					for (int i = 0; i < set.Value.Count; i++)
+					for (int i = 0; i < tSet.Value.Count; i++)
 					{
-						for (int j = 0; j < set.Value.Count; j++)
+						for (int j = 0; j < tSet.Value.Count; j++)
 						{
 							if (i == j)
 							{
@@ -58,20 +56,23 @@ namespace AdventOfCode2024
 							}
 							else
 							{
-								if (sets.ContainsKey(set.Value.ElementAt(i)))
+								string elementI = tSet.Value.ElementAt(i);
+								string elementJ = tSet.Value.ElementAt(j);
+
+								if (sets.ContainsKey(elementI))
 								{
-									if (sets[set.Value.ElementAt(i)].Contains(set.Value.ElementAt(j)))
+									if (sets[elementI].Contains(elementJ))
 									{
 										counter++;
-										Console.WriteLine($"{set.Key}, {set.Value.ElementAt(i)}, {set.Value.ElementAt(j)}");
+										Console.WriteLine($"{tSet.Key}, {elementI}, {elementJ}");
 									}
 								}
-								else if (tSets.ContainsKey(set.Value.ElementAt(i)))
+								else if (tSets.ContainsKey(elementI))
 								{
-									if (tSets[set.Value.ElementAt(i)].Contains(set.Value.ElementAt(j)))
+									if (tSets[elementI].Contains(elementJ))
 									{
 										counter++;
-										Console.WriteLine($"{set.Key}, {set.Value.ElementAt(i)}, {set.Value.ElementAt(j)}");
+										Console.WriteLine($"{tSet.Key}, {elementI}, {elementJ}");
 									}
 								}
 							}
@@ -83,7 +84,6 @@ namespace AdventOfCode2024
 
 			return counter.ToString();
 		}
-
 
 		private static (List<(string, string)> tConnections, List<(string, string)> connections) ProcessInput()
 		{
@@ -120,8 +120,5 @@ namespace AdventOfCode2024
 
 			return (tConnections, connections);
 		}
-
-
-
 	}
 }

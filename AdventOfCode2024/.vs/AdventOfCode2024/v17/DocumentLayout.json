@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day23\\day23.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\day23\\day23test.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:day23\\day23test.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|c:\\users\\jedrulcia\\desktop\\jedrzej\\programowanko\\github\\adventofcode2024\\adventofcode2024\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEDD62D8-6655-4B71-BE00-26842D08BF75}|AdventOfCode2024.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -28,7 +32,7 @@
               "RelativeDocumentMoniker": "Day23\\Day23.cs",
               "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day23\\Day23.cs",
               "RelativeToolTip": "Day23\\Day23.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAgwF8AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAowHgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T10:22:13.142Z",
               "IsPinned": true,
@@ -49,6 +53,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Day23test.txt",
+              "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day23\\Day23test.txt",
+              "RelativeDocumentMoniker": "Day23\\Day23test.txt",
+              "ToolTip": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Day23\\Day23test.txt",
+              "RelativeToolTip": "Day23\\Day23test.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-30T12:40:38.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jedrulcia\\Desktop\\Jedrzej\\Programowanko\\github\\AdventOfCode2024\\AdventOfCode2024\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -56,8 +73,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T10:25:44.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-30T10:25:44.72Z"
             }
           ]
         }
