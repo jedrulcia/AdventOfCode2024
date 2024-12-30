@@ -105,7 +105,6 @@ namespace AdventOfCode2024
 			List<(string, string)> connections = new List<(string, string)>();
 			List<(string, string)> reversedConnections = new List<(string, string)>();
 
-
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
 			string projectPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
 			string dayPath = Path.Combine(projectPath, "Day23");

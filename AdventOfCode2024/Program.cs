@@ -8,7 +8,7 @@ class Program
 		Stopwatch stopwatch = new Stopwatch();
 		stopwatch.Start();
 
-		Console.WriteLine(Day23.Part2()); 
+		Console.WriteLine(Day24.Part1()); 
 		
 		stopwatch.Stop();
 		Console.WriteLine($"Runtime: {stopwatch.ElapsedMilliseconds} ms");
