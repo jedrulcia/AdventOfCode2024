@@ -98,8 +98,6 @@ namespace AdventOfCode2024
 			return best.ToString();
 		}
 
-
-
 		private static (List<(string, string)> connections, List<(string, string)> reversedConnections) ProcessInputPart2()
 		{
 			List<(string, string)> connections = new List<(string, string)>();
